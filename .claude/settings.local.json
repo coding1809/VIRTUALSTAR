@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(xargs grep -l \"integration\\\\|Facebook\\\\|Connect\\\\|AB02\")"
+      "Bash(xargs grep -l \"integration\\\\|Facebook\\\\|Connect\\\\|AB02\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

@@ -1,5 +1,6 @@
+import { createServerClient } from "@supabase/ssr";
 import { NextResponse } from "next/server";
-import { createClient, createServiceClient } from "../../../lib/supabase/server";
+import { createServiceClient } from "../../../lib/supabase/server";
 
 export async function GET(request) {
   const { searchParams, origin } = new URL(request.url);
@@ -10,8 +11,23 @@ export async function GET(request) {
     return NextResponse.redirect(`${origin}/agent-portal/login?denied=1`);
   }
 
-  const supabase = await createClient();
-  const db = createServiceClient();
+  // Build the success redirect first so we can attach session cookies to it.
+  const response = NextResponse.redirect(`${origin}${next}`);
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        getAll() { return request.cookies.getAll(); },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
 
   const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
   if (exchangeError) {
@@ -22,6 +38,8 @@ export async function GET(request) {
   if (!user) {
     return NextResponse.redirect(`${origin}/agent-portal/login?denied=1`);
   }
+
+  const db = createServiceClient();
 
   // Upsert user, always syncing display_name/avatar_url from Google metadata.
   await db.from("users").upsert(
@@ -42,9 +60,8 @@ export async function GET(request) {
     .single();
 
   if (!currentUser?.is_active) {
-    await supabase.auth.signOut();
     return NextResponse.redirect(`${origin}/agent-portal/login?denied=1`);
   }
 
-  return NextResponse.redirect(`${origin}${next}`);
+  return response;
 }

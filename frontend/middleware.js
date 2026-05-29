@@ -27,7 +27,14 @@ export async function middleware(request) {
 
   // Refreshes the session and writes updated cookies back to the browser.
   // Must run before any server-component auth checks.
-  await supabase.auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  // Hard-protect the agent portal dashboard — redirect to login if not signed in.
+  if (!user && request.nextUrl.pathname.startsWith("/agent-portal/dashboard")) {
+    const loginUrl = new URL("/agent-portal/login", request.url);
+    loginUrl.searchParams.set("next", "/agent-portal/dashboard");
+    return NextResponse.redirect(loginUrl);
+  }
 
   return supabaseResponse;
 }

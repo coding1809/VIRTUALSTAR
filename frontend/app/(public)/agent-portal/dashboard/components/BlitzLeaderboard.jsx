@@ -161,12 +161,9 @@ export default function BlitzLeaderboard({ user, onBack, standalone = false, cre
   useEffect(() => {
     if (!user) { setLoading(false); return; }
 
-    supabase.from("user_roles").select("role_id").eq("user_id", user.id)
-      .maybeSingle().then(({ data: urRow }) => {
-        if (!urRow?.role_id) { setMyRole(null); return; }
-        supabase.from("roles").select("name").eq("id", urRow.role_id).single()
-          .then(({ data: roleData }) => setMyRole(roleData?.name ?? null));
-      });
+    fetch("/api/my-role")
+      .then(r => r.json())
+      .then(({ role }) => setMyRole(role ?? null));
 
     let channel;
     supabase.from("events")

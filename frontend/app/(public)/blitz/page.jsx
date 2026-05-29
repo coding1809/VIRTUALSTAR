@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { createClient } from "../../../lib/supabase/client";
 import BlitzLeaderboard from "../agent-portal/dashboard/components/BlitzLeaderboard";
@@ -28,7 +29,13 @@ export default function BlitzPage() {
     <main className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <span className={styles.viLogo}>V</span>
+          <Image
+            src="/icons/VLOGO-Photoroom.png"
+            alt="Virtual Impact"
+            width={32}
+            height={32}
+            priority
+          />
           <span className={styles.viName}>BLITZ LEADERBOARD</span>
         </div>
       </header>

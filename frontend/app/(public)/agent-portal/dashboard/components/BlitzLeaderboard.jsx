@@ -92,26 +92,16 @@ export default function BlitzLeaderboard({ user, onBack, standalone = false, cre
     const historyIds = [...new Set((recentSales || []).map(r => r.user_id))];
     const allIds     = [...new Set([...userIds, ...historyIds])];
 
-    const [{ data: profiles }, { data: urRows }] = await Promise.all([
-      allIds.length
-        ? supabase.from("users").select("id, display_name, avatar_url").in("id", allIds)
-        : { data: [] },
-      userIds.length
-        ? supabase.from("user_roles").select("user_id, role_id").in("user_id", userIds)
-        : { data: [] },
-    ]);
+    // Fetch profiles server-side so RLS on the users table never hides other users' names/avatars.
+    const { profiles = [], roleByUser: roleMap = {} } = allIds.length
+      ? await fetch("/api/blitz/profiles", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userIds: allIds }),
+        }).then(r => r.json())
+      : {};
 
     const profileMap = Object.fromEntries((profiles || []).map(p => [p.id, p]));
-
-    // Resolve role names without FK join
-    const roleIds = [...new Set((urRows || []).map(r => r.role_id).filter(Boolean))];
-    const { data: rolesData } = roleIds.length
-      ? await supabase.from("roles").select("id, name").in("id", roleIds)
-      : { data: [] };
-    const roleNameById = Object.fromEntries((rolesData || []).map(r => [r.id, r.name]));
-    const roleMap = Object.fromEntries(
-      (urRows || []).map(r => [r.user_id, roleNameById[r.role_id] ?? null])
-    );
 
     const ranked = Object.values(map)
       .map(e => ({

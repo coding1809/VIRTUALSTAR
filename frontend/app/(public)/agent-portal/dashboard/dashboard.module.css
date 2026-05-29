@@ -1,0 +1,672 @@
+.dashboardPage {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(0, 212, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 12%, rgba(245, 166, 35, 0.2), transparent 26%),
+    radial-gradient(circle at 50% 100%, rgba(24, 75, 138, 0.26), transparent 38%),
+    linear-gradient(180deg, #050a16 0%, #040812 100%);
+  color: #eef6ff;
+}
+
+.dashboardSection {
+  position: relative;
+  padding: 0;
+}
+
+.ambientGlow {
+  position: absolute;
+  inset: 100px 8vw auto;
+  height: clamp(180px, 30vh, 320px);
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.12), rgba(245, 166, 35, 0.14));
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px 14px 14px 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding: 18px 0 12px;
+  border-radius: 0 22px 22px 0;
+  background: linear-gradient(180deg, rgba(10, 22, 40, 0.66), rgba(8, 17, 33, 0.48));
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.sidebarBadge {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.3), rgba(245, 166, 35, 0.08));
+  color: #ffd18a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.sidebarNav {
+  display: grid;
+  gap: 9px;
+}
+
+.navDot {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(9, 20, 38, 0.7);
+  color: rgba(224, 236, 255, 0.62);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.navIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.navDot:hover {
+  transform: translateY(-1px);
+  background: rgba(17, 35, 64, 0.84);
+  color: #e8f4ff;
+}
+
+.navDotActive {
+  background: linear-gradient(145deg, rgba(245, 166, 35, 0.36), rgba(245, 166, 35, 0.1));
+  color: #ffe2ab;
+}
+
+.sidebarHint {
+  margin: 0;
+  color: rgba(238, 246, 255, 0.48);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.main {
+  display: grid;
+  align-content: start;
+  gap: clamp(12px, 1.7vw, 22px);
+  min-width: 0;
+  padding: 28px clamp(10px, 1.6vw, 24px) 28px 0;
+}
+
+.trainingView {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.viewLabel {
+  margin: 0;
+  color: #f5a623;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.simCard {
+  width: 280px;
+  padding: 22px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(245, 166, 35, 0.28);
+  background:
+    radial-gradient(circle at 90% 12%, rgba(245, 166, 35, 0.18), transparent 55%),
+    linear-gradient(145deg, rgba(10, 22, 42, 0.9), rgba(6, 14, 28, 0.78));
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.36);
+}
+
+.simCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 166, 35, 0.55);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.46), 0 0 0 1px rgba(245, 166, 35, 0.2);
+}
+
+.simCardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.simCardBadge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.simCardTitle {
+  display: block;
+  color: #f0f7ff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.simCardDesc {
+  display: block;
+  color: rgba(240, 247, 255, 0.6);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.simCardCta {
+  display: block;
+  margin-top: 4px;
+  color: #f5a623;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.mobileNav {
+  display: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #00d4ff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.overviewPanel {
+  position: relative;
+  padding: clamp(16px, 2.2vw, 28px);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(7, 19, 38, 0.68), rgba(6, 15, 30, 0.42));
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.overviewPanel::before {
+  content: "";
+  position: absolute;
+  inset: -70% -30% auto 45%;
+  height: 220px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.2), transparent 64%);
+  pointer-events: none;
+}
+
+.overviewTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.liveTag {
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(245, 166, 35, 0.16);
+  color: #ffd18a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.9rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: rgba(238, 246, 255, 0.78);
+  line-height: 1.55;
+  max-width: 54ch;
+}
+
+.statsGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.statCard {
+  padding: 14px 14px 12px;
+  border-radius: 16px;
+  background: rgba(5, 14, 28, 0.72);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+}
+
+.statCard span {
+  color: rgba(231, 240, 255, 0.58);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.statCard strong {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  line-height: 1;
+}
+
+.statGold {
+  box-shadow: inset 0 0 0 1px rgba(245, 166, 35, 0.14);
+}
+
+.statCyan {
+  box-shadow: inset 0 0 0 1px rgba(0, 212, 255, 0.18);
+}
+
+.statNeutral {
+  box-shadow: inset 0 0 0 1px rgba(226, 236, 255, 0.14);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+  gap: clamp(12px, 1.4vw, 20px);
+  align-items: start;
+}
+
+.trainingLayout {
+  display: grid;
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+.surfaceCard {
+  position: relative;
+  border-radius: 22px;
+  padding: clamp(14px, 1.8vw, 22px);
+  background: linear-gradient(145deg, rgba(9, 23, 43, 0.66), rgba(5, 14, 28, 0.48));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 46px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.surfaceCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+}
+
+.trainingCard {
+  overflow: hidden;
+}
+
+.simulatorsCard {
+  overflow: hidden;
+}
+
+.cardHead h2 {
+  margin: 0;
+  font-size: 1.28rem;
+  letter-spacing: -0.01em;
+}
+
+.cardHead p {
+  margin: 8px 0 0;
+  color: rgba(238, 246, 255, 0.66);
+  font-size: 0.92rem;
+}
+
+.trainingGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trainingTile {
+  border-radius: 16px;
+  background: linear-gradient(155deg, rgba(6, 17, 34, 0.82), rgba(5, 13, 24, 0.66));
+  padding: 14px;
+  min-height: 132px;
+  display: grid;
+  align-content: space-between;
+}
+
+.featuredTile {
+  grid-column: span 2;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 166, 35, 0.24), transparent 36%),
+    linear-gradient(155deg, rgba(10, 28, 52, 0.9), rgba(6, 16, 30, 0.7));
+}
+
+.tileLabel {
+  display: block;
+  color: rgba(238, 246, 255, 0.56);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.tileValue {
+  display: block;
+  margin-top: 7px;
+  color: #f0f7ff;
+  font-size: 1.03rem;
+  font-weight: 700;
+}
+
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(222, 233, 255, 0.12);
+  overflow: hidden;
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00d4ff, #f5a623);
+}
+
+.progressRow em {
+  font-style: normal;
+  color: rgba(238, 246, 255, 0.64);
+  font-size: 0.74rem;
+}
+
+.simulatorGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.simulatorTile {
+  border-radius: 16px;
+  padding: 14px;
+  background: linear-gradient(145deg, rgba(6, 17, 34, 0.78), rgba(5, 12, 23, 0.62));
+  min-height: 164px;
+  display: grid;
+  align-content: space-between;
+  gap: 8px;
+}
+
+.simulatorPrimary {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 166, 35, 0.22), transparent 40%),
+    linear-gradient(145deg, rgba(10, 28, 52, 0.88), rgba(6, 16, 29, 0.68));
+}
+
+.simType {
+  color: rgba(235, 242, 255, 0.56);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.simulatorTile h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.simulatorTile p {
+  margin: 0;
+  color: rgba(238, 246, 255, 0.7);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.simLink {
+  width: fit-content;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 212, 255, 0.16);
+  color: #b9f3ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.simLink:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 212, 255, 0.24);
+}
+
+.sideColumn {
+  display: grid;
+  gap: clamp(12px, 1.4vw, 18px);
+}
+
+.activityCard {
+  min-height: 250px;
+}
+
+.activityList {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.activityItem {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(4, 12, 24, 0.52);
+}
+
+.activityPulse {
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: #00d4ff;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.56);
+}
+
+.activityItem strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.activityItem small {
+  display: block;
+  margin-top: 5px;
+  color: rgba(238, 246, 255, 0.56);
+}
+
+.momentumCard {
+  background:
+    radial-gradient(circle at 92% 18%, rgba(245, 166, 35, 0.28), transparent 42%),
+    linear-gradient(140deg, rgba(11, 28, 52, 0.7), rgba(7, 17, 30, 0.64));
+}
+
+.momentumLabel {
+  margin: 0;
+  color: rgba(245, 166, 35, 0.8);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.momentumCard h3 {
+  margin: 10px 0 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.momentumCard p {
+  margin: 10px 0 0;
+  color: rgba(238, 246, 255, 0.7);
+  line-height: 1.6;
+  font-size: 0.94rem;
+}
+
+@media (max-width: 1160px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sideColumn {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 10px 10px 14px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobileNav {
+    display: block;
+    border-radius: 14px;
+    background: rgba(9, 20, 38, 0.62);
+    padding: 10px 12px;
+  }
+
+  .mobileNav summary {
+    cursor: pointer;
+    color: rgba(238, 246, 255, 0.88);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .mobileNavList {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .mobilePill {
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 0;
+    background: rgba(245, 166, 35, 0.12);
+    color: rgba(255, 221, 166, 0.95);
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobilePillActive {
+    background: rgba(0, 212, 255, 0.2);
+    color: #c8f8ff;
+  }
+
+  .overviewTop {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .trainingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .simulatorGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredTile {
+    grid-column: span 1;
+  }
+
+  .sideColumn {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .overviewPanel,
+  .surfaceCard {
+    border-radius: 18px;
+    padding: 14px;
+  }
+
+  .title {
+    font-size: clamp(1.42rem, 7vw, 1.9rem);
+  }
+}

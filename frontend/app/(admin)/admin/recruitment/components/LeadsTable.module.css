@@ -1,0 +1,69 @@
+.tableWrap {
+  background: linear-gradient(145deg, rgba(10, 18, 34, 0.96), rgba(7, 13, 24, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.scroll { overflow-x: auto; }
+
+.empty {
+  padding: 32px 24px;
+  color: rgba(240, 247, 255, 0.3);
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  color: rgba(240, 247, 255, 0.35);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: 12px 16px;
+  color: rgba(240, 247, 255, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td { border-bottom: 0; }
+.table tbody tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+.name { color: #f0f7ff !important; font-weight: 600; }
+.email { color: rgba(240, 247, 255, 0.55) !important; font-size: 0.78rem; }
+.mono { font-family: monospace; font-size: 0.78rem; }
+.time { color: rgba(240, 247, 255, 0.35) !important; font-size: 0.76rem; }
+
+/* ── STATUS PILLS ────────────────────────────── */
+.statusPill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.statusNew          { background: rgba(0, 212, 255, 0.1);   color: #7ef5ff;  border: 1px solid rgba(0, 212, 255, 0.2); }
+.statusContacted    { background: rgba(245, 166, 35, 0.1); color: #f5a623;  border: 1px solid rgba(245, 166, 35, 0.2); }
+.statusQualified    { background: rgba(34, 197, 94, 0.1);  color: #4ade80;  border: 1px solid rgba(34, 197, 94, 0.2); }
+.statusDisqualified { background: rgba(255, 107, 107, 0.08); color: #ff6b6b; border: 1px solid rgba(255, 107, 107, 0.18); }
+.statusHired        { background: rgba(168, 85, 247, 0.1); color: #c084fc;  border: 1px solid rgba(168, 85, 247, 0.2); }
+
+/* ── SYNC STATUS ─────────────────────────────── */
+.synced   { color: #4ade80; font-size: 0.74rem; font-weight: 600; }
+.unsynced { color: rgba(240, 247, 255, 0.25); font-size: 0.74rem; }

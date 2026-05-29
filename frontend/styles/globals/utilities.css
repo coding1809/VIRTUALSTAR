@@ -1,0 +1,198 @@
+/* Utility classes from the Virtual Impact design system */
+.vi-glow-text {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.15), 0 0 20px #00d4ff;
+}
+
+.vi-gold-text {
+  color: #f5a623;
+}
+
+.vi-cyan-text {
+  color: #00d4ff;
+}
+
+.vi-grid-bg {
+  background-image: linear-gradient(to right, rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.vi-card {
+  background: rgba(10, 22, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+}
+
+.vi-card:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.vi-btn-primary {
+  background: linear-gradient(135deg, #0a1628, #050914);
+  border: 1px solid #f5a623;
+  color: #f5a623;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.vi-btn-primary:hover {
+  box-shadow: 0 0 15px rgba(245, 166, 35, 0.4);
+  transform: scale(1.05);
+}
+
+.vi-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(5, 9, 20, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  z-index: 1000;
+}
+
+.vi-nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+
+.vi-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.55rem;
+  line-height: 0.95;
+}
+
+.vi-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: 700;
+}
+
+.vi-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(245, 166, 35, 0.55);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.92), rgba(5, 9, 20, 0.96));
+  color: #f5a623;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.vi-nav-cta:hover {
+  transform: translateY(-1px);
+  border-color: #f5a623;
+  box-shadow: 0 10px 24px rgba(245, 166, 35, 0.18);
+}
+
+.vi-page-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.vi-container {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+}
+
+.vi-section {
+  padding: 90px 0;
+}
+
+.vi-hero {
+  padding-top: 140px;
+}
+
+.vi-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+.vi-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.vi-metric {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.vi-subtle {
+  color: rgba(235, 241, 255, 0.74);
+}
+
+@media (max-width: 900px) {
+  .vi-hero-grid,
+  .vi-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vi-section {
+    padding: 64px 0;
+  }
+
+  .vi-hero {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vi-nav-shell {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0 12px;
+  }
+
+  .vi-nav-brand {
+    gap: 8px;
+    font-size: 1.15rem;
+  }
+
+  .vi-nav-brand img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .vi-nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 0.92rem;
+  }
+
+  .vi-nav-cta {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.84rem;
+  }
+}

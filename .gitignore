@@ -1,0 +1,23 @@
+# ── Secrets / environment ──────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# ── Next.js ────────────────────────────────────────────
+frontend/.next/
+frontend/out/
+
+# ── Dependencies ───────────────────────────────────────
+frontend/node_modules/
+node_modules/
+
+# ── Vercel ─────────────────────────────────────────────
+.vercel
+
+# ── OS / editor ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp

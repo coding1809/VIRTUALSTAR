@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\xenom\\\\Documents\\\\VIRTUALimSTAR\\\\frontend\\\\app\\\\api\\\\sim-response\")",
+      "Bash(Out-Null)"
+    ]
+  }
+}

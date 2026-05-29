@@ -1,0 +1,24 @@
+:root {
+  --vi-gold: #f5a623;
+  --vi-cyan: #00d4ff;
+  --vi-dark: #050914;
+  --vi-navy: #0a1628;
+
+  --background: 220 15% 4%;
+  --foreground: 0 0% 95%;
+  --border: 198 100% 20%;
+  --card: 220 15% 6%;
+  --card-foreground: 0 0% 95%;
+  --primary: 198 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 15% 10%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 220 15% 15%;
+  --muted-foreground: 0 0% 70%;
+  --accent: 198 100% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --input: 198 100% 20%;
+  --ring: 198 100% 50%;
+  --radius: 0.5rem;
+}

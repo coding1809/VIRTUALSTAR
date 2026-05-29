@@ -1,0 +1,621 @@
+/* ── Shared utils ─────────────────────────────────── */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: none;
+  color: rgba(238, 246, 255, 0.55);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 22px;
+  transition: color 0.18s ease;
+}
+.backBtn:hover { color: #eef6ff; }
+
+.avatarImg {
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+}
+
+.avatarInitial {
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.35), rgba(245, 166, 35, 0.1));
+  color: #ffd18a;
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Auth Gate ───────────────────────────────────── */
+.authGate {
+  display: flex;
+  flex-direction: column;
+}
+
+.authCard {
+  max-width: 420px;
+  padding: 36px 28px;
+  border-radius: 24px;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(245, 166, 35, 0.18), transparent 50%),
+    linear-gradient(145deg, rgba(10, 24, 44, 0.88), rgba(5, 14, 28, 0.72));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.authIcon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.authTitle {
+  margin: 0 0 10px;
+  color: #f0f7ff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.authDesc {
+  margin: 0 0 24px;
+  color: rgba(238, 246, 255, 0.64);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.googleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px;
+  height: 44px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.googleBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Board ───────────────────────────────────────── */
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.boardHead {
+  margin-bottom: 22px;
+}
+
+.boardTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.boardTitle {
+  margin: 0;
+  color: #f0f7ff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.boardSub {
+  margin: 0;
+  color: rgba(238, 246, 255, 0.52);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── My Card ─────────────────────────────────────── */
+.myCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  width: 100%;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(245, 166, 35, 0.22), transparent 55%),
+    linear-gradient(145deg, rgba(10, 24, 46, 0.86), rgba(6, 15, 30, 0.7));
+  margin-bottom: 16px;
+}
+
+.myAvatarBtn {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition: transform 0.18s ease;
+}
+.myAvatarBtn:hover { transform: scale(1.07); }
+
+.addBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #f5a623;
+  color: #0a1628;
+  font-size: 0.78rem;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  border: 2px solid #050a16;
+}
+
+.myInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.myName {
+  color: #f0f7ff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.myRole {
+  color: rgba(245, 166, 35, 0.85);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.myStats {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.myPts {
+  color: #f5a623;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.myPtsLabel {
+  color: rgba(245, 166, 35, 0.65);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.myRankBadge {
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(0, 212, 255, 0.14);
+  color: #7fecff;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* ── Sale modal ──────────────────────────────────── */
+.saleModal {
+  margin-bottom: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  background: rgba(8, 20, 40, 0.92);
+  backdrop-filter: blur(14px);
+  animation: fadeIn 0.18s ease;
+}
+
+.saleModalInner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.saleModalTitle {
+  margin: 0;
+  color: #f0f7ff;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.saleModalDesc {
+  margin: 4px 0 12px;
+  color: rgba(238, 246, 255, 0.52);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.saleModalDesc {
+  margin: 0 0 12px;
+  color: rgba(238, 246, 255, 0.58);
+  font-size: 0.84rem;
+}
+
+.amountRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(4, 12, 26, 0.7);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.dollarSign {
+  color: #f5a623;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.amountInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #f0f7ff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  width: 100%;
+  min-width: 0;
+}
+
+.amountInput::placeholder { color: rgba(238, 246, 255, 0.28); }
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.submitError {
+  margin: 0 0 10px;
+  color: #f87171;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.saleModalBtns {
+  display: flex;
+  gap: 10px;
+}
+
+.confirmBtn {
+  height: 38px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #f5a623;
+  color: #08101e;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.confirmBtn:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+.confirmBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cancelBtn {
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid rgba(238, 246, 255, 0.18);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(238, 246, 255, 0.72);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.18s ease;
+}
+.cancelBtn:hover { border-color: rgba(238, 246, 255, 0.38); }
+
+/* ── Rank List ───────────────────────────────────── */
+.rankList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rankRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  width: 100%;
+  background: linear-gradient(145deg, rgba(8, 20, 40, 0.72), rgba(5, 13, 26, 0.58));
+  transition: background 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.rankRowSelf {
+  border-color: rgba(245, 166, 35, 0.28);
+  background:
+    radial-gradient(circle at 90% 50%, rgba(245, 166, 35, 0.12), transparent 55%),
+    linear-gradient(145deg, rgba(10, 24, 44, 0.82), rgba(6, 15, 30, 0.68));
+}
+
+.rankUp {
+  animation: rankUpAnim 0.85s cubic-bezier(0.22, 0.8, 0.42, 1) forwards;
+}
+
+.rankNum {
+  width: 26px;
+  color: rgba(238, 246, 255, 0.45);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.gold   { color: #ffd700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+.silver { color: #c0c0c0; }
+.bronze { color: #cd7f32; }
+
+.rankInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rankName {
+  color: #eef6ff;
+  font-size: 0.94rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.youTag {
+  color: rgba(245, 166, 35, 0.85);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.roleBadge {
+  color: rgba(0, 212, 255, 0.72);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.rankScore {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.pts {
+  color: #f0f7ff;
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.ptsLabel {
+  color: rgba(238, 246, 255, 0.45);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.rankUpArrow {
+  color: #4ade80;
+  font-size: 0.9rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  animation: arrowBounce 0.85s ease forwards;
+}
+
+.pencilBtn {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 0;
+  background: none;
+  color: rgba(238, 246, 255, 0.28);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pencilBtn:hover {
+  background: rgba(248, 113, 113, 0.14);
+  color: #f87171;
+}
+
+.deleteConfirmBtn {
+  height: 38px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #f87171;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+}
+.deleteConfirmBtn:hover:not(:disabled) { opacity: 0.85; }
+.deleteConfirmBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Loading ─────────────────────────────────────── */
+.loadingState {
+  display: flex;
+  gap: 7px;
+  padding: 32px 0;
+  justify-content: center;
+}
+
+.loadingDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(245, 166, 35, 0.6);
+  animation: dotPulse 1.2s ease-in-out infinite;
+}
+.loadingDot:nth-child(2) { animation-delay: 0.2s; }
+.loadingDot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ── Empty ───────────────────────────────────────── */
+.emptyState {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.emptyTitle {
+  margin: 0 0 6px;
+  color: #eef6ff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.emptyDesc {
+  margin: 0;
+  color: rgba(238, 246, 255, 0.52);
+  font-size: 0.88rem;
+}
+
+/* ── Keyframes ───────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+@keyframes rankUpAnim {
+  0% {
+    transform: translateY(14px) scale(0.98);
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 22px rgba(34, 197, 94, 0.28);
+    background:
+      radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.22), transparent 70%),
+      linear-gradient(145deg, rgba(8, 20, 40, 0.82), rgba(5, 13, 26, 0.68));
+  }
+  60% {
+    border-color: rgba(34, 197, 94, 0.25);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.14);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    border-color: transparent;
+    box-shadow: none;
+    background: linear-gradient(145deg, rgba(8, 20, 40, 0.72), rgba(5, 13, 26, 0.58));
+  }
+}
+
+@keyframes arrowBounce {
+  0%   { transform: translateY(0); opacity: 1; }
+  40%  { transform: translateY(-5px); }
+  70%  { transform: translateY(-2px); }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50%       { opacity: 1;   transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── History Feed ─────────────────────────────────── */
+.historySection {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(238, 246, 255, 0.08);
+}
+
+.historyLabel {
+  margin: 0 0 12px;
+  color: rgba(238, 246, 255, 0.42);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.historyRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: rgba(5, 13, 26, 0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+.historyName {
+  flex: 1;
+  color: rgba(238, 246, 255, 0.78);
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.historyAmount {
+  color: #4ade80;
+  font-size: 0.92rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.historyDate {
+  color: rgba(238, 246, 255, 0.36);
+  font-size: 0.74rem;
+  flex-shrink: 0;
+}
+
+/* ── Standalone modifier ──────────────────────────── */
+.boardStandalone {
+  width: 100%;
+}

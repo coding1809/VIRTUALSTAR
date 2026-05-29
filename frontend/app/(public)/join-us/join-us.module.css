@@ -1,0 +1,385 @@
+.joinUsPage {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(0, 212, 255, 0.14), transparent 22%),
+    radial-gradient(circle at top left, rgba(245, 166, 35, 0.16), transparent 18%),
+    #f8f8f5;
+  color: #09111f;
+}
+
+.hero {
+  padding: 112px 0 40px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.copyBlock {
+  max-width: 680px;
+  padding-top: 10px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: #0a8fb5;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(2.9rem, 7vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+}
+
+.headlineAccent {
+  display: block;
+  color: #f5a623;
+}
+
+.lead {
+  max-width: 50ch;
+  margin: 16px 0 0;
+  color: rgba(9, 17, 31, 0.72);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.joinCta {
+  margin: 14px 0 0;
+  color: #f5a623;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proofStrip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.proofCard {
+  padding: 18px;
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 50px rgba(6, 17, 29, 0.08);
+}
+
+.proofLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(9, 17, 31, 0.6);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.proofValue {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.formCard {
+  padding: 24px;
+  border: 1px solid rgba(10, 22, 40, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 80px rgba(6, 17, 29, 0.12);
+  position: sticky;
+  top: 104px;
+}
+
+.progressMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.progressText {
+  color: rgba(9, 17, 31, 0.6);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.progressBar {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(10, 22, 40, 0.08);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00d4ff, #f5a623);
+  transition: width 0.25s ease;
+}
+
+.stepTitle {
+  margin: 18px 0 8px;
+  font-size: clamp(1.45rem, 4vw, 2.1rem);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.stepDescription {
+  margin: 0 0 14px;
+  color: rgba(9, 17, 31, 0.66);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(9, 17, 31, 0.72);
+}
+
+.textInput {
+  width: 100%;
+  padding: 18px 16px;
+  border: 1px solid rgba(10, 22, 40, 0.15);
+  border-radius: 18px;
+  background: #fff;
+  color: #09111f;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.textInput:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.choiceGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.choiceButton {
+  width: 100%;
+  padding: 18px 16px;
+  border: 1px solid rgba(10, 22, 40, 0.12);
+  border-radius: 18px;
+  background: #fff;
+  color: #09111f;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.choiceButton:hover,
+.choiceButton:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow: 0 14px 30px rgba(0, 212, 255, 0.12);
+}
+
+.choiceButtonSelected {
+  border-color: transparent;
+  background: linear-gradient(135deg, #0a1628, #102a48);
+  color: #fff;
+  box-shadow: 0 20px 36px rgba(10, 22, 40, 0.2);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.secondaryButton,
+.primaryButton {
+  min-height: 56px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(10, 22, 40, 0.16);
+  background: transparent;
+  color: #09111f;
+}
+
+.primaryButton {
+  flex: 1;
+  border: 0;
+  background: linear-gradient(135deg, #0a1628, #00a4d1);
+  color: #fff;
+  box-shadow: 0 18px 35px rgba(0, 122, 155, 0.22);
+}
+
+.secondaryButton:hover,
+.primaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.primaryButtonDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.disclaimer {
+  margin-top: 18px;
+  color: rgba(9, 17, 31, 0.55);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.successState {
+  padding: 28px 8px 8px;
+}
+
+.successBadge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 212, 255, 0.12);
+  color: #007ea3;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.successTitle {
+  margin: 16px 0 10px;
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.successText {
+  margin: 0;
+  color: rgba(9, 17, 31, 0.68);
+  line-height: 1.65;
+}
+
+@media (max-width: 980px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .proofStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .formCard {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 88px;
+  }
+
+  .copyBlock {
+    padding-top: 0;
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+  }
+
+  .headline {
+    font-size: clamp(2.1rem, 11vw, 3.2rem);
+    line-height: 0.96;
+  }
+
+  .lead {
+    margin-top: 12px;
+    font-size: 0.94rem;
+  }
+
+  .proofStrip {
+    display: none;
+  }
+
+  .formCard {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .progressMeta {
+    margin-bottom: 12px;
+  }
+
+  .progressText {
+    font-size: 0.76rem;
+  }
+
+  .stepTitle {
+    margin-top: 14px;
+    font-size: 1.34rem;
+  }
+
+  .stepDescription {
+    display: none;
+  }
+
+  .fieldLabel {
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+  }
+
+  .textInput,
+  .choiceButton {
+    padding: 16px 14px;
+    border-radius: 16px;
+    font-size: 0.96rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    margin-top: 18px;
+  }
+
+  .secondaryButton,
+  .primaryButton {
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .disclaimer {
+    margin-top: 14px;
+    font-size: 0.78rem;
+  }
+}

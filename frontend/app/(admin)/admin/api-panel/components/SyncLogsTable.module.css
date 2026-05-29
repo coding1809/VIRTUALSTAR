@@ -1,0 +1,107 @@
+.wrap {
+  background: linear-gradient(145deg, rgba(10, 18, 34, 0.96), rgba(7, 13, 24, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tableTitle {
+  margin: 0;
+  color: #f0f7ff;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.rowCount {
+  color: rgba(240, 247, 255, 0.3);
+  font-size: 0.76rem;
+}
+
+.empty {
+  padding: 32px 24px;
+  color: rgba(240, 247, 255, 0.3);
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+.tableScroll { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.table thead th {
+  padding: 10px 14px;
+  text-align: left;
+  color: rgba(240, 247, 255, 0.35);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: 10px 14px;
+  color: rgba(240, 247, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td { border-bottom: 0; }
+.table tbody tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+/* Row tints by status */
+.table tbody tr.failed td { color: rgba(255, 107, 107, 0.75); }
+
+/* ── DIRECTION PILL ──────────────────────────── */
+.dirPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.push { background: rgba(245, 166, 35, 0.1); color: #f5a623; border: 1px solid rgba(245, 166, 35, 0.2); }
+.pull { background: rgba(0, 212, 255, 0.08); color: #7ef5ff; border: 1px solid rgba(0, 212, 255, 0.18); }
+
+/* ── STATUS DOT ──────────────────────────────── */
+.statusDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.success { background: #22c55e; color: #22c55e; }
+.failed  { background: #ff6b6b; color: #ff6b6b; }
+.partial { background: #f5a623; color: #f5a623; }
+
+td.success { color: rgba(34, 197, 94, 0.9); }
+td.failed  { color: rgba(255, 107, 107, 0.9); }
+td.partial { color: rgba(245, 166, 35, 0.9); }
+
+.mono { font-family: monospace; font-size: 0.78rem; }
+
+.httpErr { color: #ff6b6b !important; }
+
+.time { color: rgba(240, 247, 255, 0.35); font-size: 0.76rem; }
+
+.error { color: rgba(255, 107, 107, 0.7); font-size: 0.78rem; max-width: 260px; white-space: normal; }

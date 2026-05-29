@@ -1,0 +1,222 @@
+.portalPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(245, 166, 35, 0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(0, 212, 255, 0.16) 0%, transparent 50%),
+    linear-gradient(145deg, #0b0e14 0%, #080b11 50%, #060810 100%);
+  color: #f0f7ff;
+  padding: 32px 16px;
+}
+
+.portalWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.portalCopy {
+  max-width: 520px;
+}
+
+.portalEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #f5a623;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.portalHeadline {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: #f0f7ff;
+}
+
+.portalAccent {
+  display: block;
+  background: linear-gradient(90deg, #f5a623, #ffd07a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.portalLead {
+  margin: 22px 0 0;
+  max-width: 46ch;
+  color: rgba(240, 247, 255, 0.68);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.portalMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.portalPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(245, 166, 35, 0.28);
+  border-radius: 999px;
+  background: rgba(245, 166, 35, 0.07);
+  color: rgba(240, 247, 255, 0.82);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.portalCard {
+  padding: 32px;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(245, 166, 35, 0.1), transparent 60%),
+    rgba(12, 16, 24, 0.9);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 0 1px rgba(245, 166, 35, 0.08) inset,
+    0 32px 80px rgba(0, 0, 0, 0.5);
+}
+
+.portalCardEyebrow {
+  margin: 0 0 8px;
+  color: #f5a623;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.portalCardTitle {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #f0f7ff;
+}
+
+.portalCardText {
+  margin: 12px 0 0;
+  color: rgba(240, 247, 255, 0.64);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.googleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 26px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f5a623, #e8920f);
+  color: #0b0e14;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  box-shadow: 0 8px 28px rgba(245, 166, 35, 0.35);
+}
+
+.googleButton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 38px rgba(245, 166, 35, 0.48);
+}
+
+.googleBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0b0e14;
+  font-size: 1rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.portalHint {
+  margin: 16px 0 0;
+  color: rgba(240, 247, 255, 0.44);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .portalWrap {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    gap: 32px;
+  }
+
+  .portalCopy {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .portalMeta {
+    justify-content: center;
+  }
+
+  .portalLead {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .portalHeadline {
+    font-size: clamp(2.4rem, 12vw, 3.2rem);
+  }
+
+  .portalCard {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .portalCardTitle {
+    font-size: 1.45rem;
+  }
+}
+
+.portalError {
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  color: #ff6b6b;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.googleButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: none;
+}

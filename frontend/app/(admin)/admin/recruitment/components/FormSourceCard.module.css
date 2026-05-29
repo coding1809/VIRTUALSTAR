@@ -1,0 +1,199 @@
+.card {
+  background: linear-gradient(145deg, rgba(10, 18, 34, 0.96), rgba(7, 13, 24, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.18s;
+}
+
+.card:hover { border-color: rgba(245, 166, 35, 0.2); }
+.cardActive { border-color: rgba(245, 166, 35, 0.45) !important; background: rgba(245, 166, 35, 0.04) !important; }
+
+/* ── MAIN ROW ────────────────────────────────── */
+.cardMain {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.icon { font-size: 1.3rem; flex-shrink: 0; line-height: 1; }
+
+.info { flex: 1; min-width: 0; }
+
+.label {
+  margin: 0;
+  color: #f0f7ff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  margin: 3px 0 0;
+  color: rgba(240, 247, 255, 0.38);
+  font-size: 0.74rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ownerTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.ownerVerified {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.ownerPending {
+  background: rgba(245, 166, 35, 0.1);
+  color: #f5a623;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+.configBtn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(240, 247, 255, 0.4);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s;
+}
+.configBtn:hover { background: rgba(255, 255, 255, 0.1); color: #f5a623; border-color: rgba(245, 166, 35, 0.3); }
+
+/* ── CONFIG PANEL ────────────────────────────── */
+.config {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.configLabel {
+  margin: 0;
+  color: rgba(240, 247, 255, 0.45);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.configHint {
+  margin: 0;
+  color: rgba(240, 247, 255, 0.3);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+/* Owner confirmed badge */
+.ownerBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.07);
+  border: 1px solid rgba(34, 197, 94, 0.18);
+}
+
+.ownerBadgeIcon { font-size: 1rem; color: #4ade80; flex-shrink: 0; }
+
+.ownerBadgeName {
+  margin: 0;
+  color: #f0f7ff;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.ownerBadgeEmail {
+  margin: 2px 0 0;
+  color: rgba(240, 247, 255, 0.4);
+  font-size: 0.72rem;
+}
+
+.apiKeyChip {
+  margin-left: auto;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  color: #f5a623;
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+/* Assign row */
+.assignRow { display: flex; gap: 8px; }
+
+.select {
+  flex: 1;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f0f7ff;
+  font-size: 0.82rem;
+  outline: none;
+}
+.select option { background: #0a111e; }
+
+.assignBtn {
+  min-height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #f5a623, #e8920f);
+  color: #0b0e14;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter 0.15s;
+  white-space: nowrap;
+}
+.assignBtn:hover { filter: brightness(1.08); }
+.assignBtn:disabled { opacity: 0.4; cursor: default; filter: none; }
+
+.verifyBtn {
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 9px;
+  background: rgba(0, 212, 255, 0.07);
+  color: #7ef5ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  align-self: flex-start;
+}
+.verifyBtn:hover { background: rgba(0, 212, 255, 0.14); }
+.verifyBtn:disabled { opacity: 0.4; cursor: default; }
+
+.msg { margin: 0; color: #4ade80; font-size: 0.76rem; }

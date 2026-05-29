@@ -1,8 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse } from "next/server";
 
-const ADMIN_ROLES = ["admin", "admin_developer"];
-
 export async function proxy(request) {
   const { pathname } = request.nextUrl;
   let response = NextResponse.next({ request });
@@ -22,40 +20,22 @@ export async function proxy(request) {
     }
   );
 
-  // Always call getUser to refresh session tokens
+  // Refresh session on every request so server components always see a valid token.
   const { data: { user } } = await supabase.auth.getUser();
 
-  if (pathname.startsWith("/auth/callback")) {
-    return response;
-  }
+  // Let the auth callback through unconditionally.
+  if (pathname.startsWith("/auth/callback")) return response;
 
-  if (pathname.startsWith("/admin")) {
-    if (!user) {
+  if (!user) {
+    if (pathname.startsWith("/admin")) {
       return NextResponse.redirect(new URL("/agent-portal/login?next=/admin", request.url));
     }
-
-    // Two-query lookup — FK join syntax requires cached schema, silently returns null
-    const { data: urRow } = await supabase
-      .from("user_roles")
-      .select("role_id")
-      .eq("user_id", user.id)
-      .maybeSingle();
-
-    let roleName = null;
-    if (urRow?.role_id != null) {
-      const { data: roleData } = await supabase
-        .from("roles")
-        .select("name")
-        .eq("id", urRow.role_id)
-        .single();
-      roleName = roleData?.name ?? null;
-    }
-
-    if (!ADMIN_ROLES.includes(roleName)) {
-      return NextResponse.redirect(new URL("/agent-portal/login?denied=1", request.url));
+    if (pathname.startsWith("/agent-portal/dashboard")) {
+      return NextResponse.redirect(new URL("/agent-portal/login?next=/agent-portal/dashboard", request.url));
     }
   }
 
+  // Role check is intentionally left to the admin layout (uses service client, bypasses RLS).
   return response;
 }
 

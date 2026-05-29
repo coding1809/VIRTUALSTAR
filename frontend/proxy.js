@@ -22,9 +22,9 @@ export async function proxy(request) {
     }
   );
 
+  // Always call getUser to refresh session tokens
   const { data: { user } } = await supabase.auth.getUser();
 
-  // Auth callback must pass through untouched — it handles its own redirect
   if (pathname.startsWith("/auth/callback")) {
     return response;
   }
@@ -34,16 +34,25 @@ export async function proxy(request) {
       return NextResponse.redirect(new URL("/agent-portal/login?next=/admin", request.url));
     }
 
-    const { data: roleRow } = await supabase
+    // Two-query lookup — FK join syntax requires cached schema, silently returns null
+    const { data: urRow } = await supabase
       .from("user_roles")
-      .select("roles(name)")
+      .select("role_id")
       .eq("user_id", user.id)
       .maybeSingle();
 
-    const roleName = roleRow?.roles?.name ?? null;
+    let roleName = null;
+    if (urRow?.role_id != null) {
+      const { data: roleData } = await supabase
+        .from("roles")
+        .select("name")
+        .eq("id", urRow.role_id)
+        .single();
+      roleName = roleData?.name ?? null;
+    }
 
     if (!ADMIN_ROLES.includes(roleName)) {
-      return NextResponse.redirect(new URL("/agent-portal/dashboard", request.url));
+      return NextResponse.redirect(new URL("/agent-portal/login?denied=1", request.url));
     }
   }
 

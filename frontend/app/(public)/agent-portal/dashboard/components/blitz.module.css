@@ -124,6 +124,33 @@
   letter-spacing: 0.04em;
 }
 
+/* ── Grand Total ─────────────────────────────────── */
+.grandTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.12), rgba(10, 24, 46, 0.6));
+  margin-bottom: 18px;
+}
+
+.grandTotalLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 166, 35, 0.85);
+}
+
+.grandTotalAmount {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #f5a623;
+  letter-spacing: 0.02em;
+}
+
 /* ── My Card ─────────────────────────────────────── */
 .myCard {
   display: flex;

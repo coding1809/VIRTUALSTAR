@@ -282,6 +282,12 @@ export default function BlitzLeaderboard({ user, onBack, standalone = false, cre
         <p className={styles.boardSub}>Real-time sales competition · updates instantly</p>
       </div>
 
+      {/* Grand total team production */}
+      <div className={styles.grandTotal}>
+        <span className={styles.grandTotalLabel}>Producción Total del Equipo</span>
+        <span className={styles.grandTotalAmount}>{fmt(entries.reduce((s, e) => s + e.total, 0))}</span>
+      </div>
+
       {/* My card — always full width, updates live */}
       <div className={styles.myCard}>
         <button className={styles.myAvatarBtn} type="button"
